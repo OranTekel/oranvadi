@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oran Tekel Vadi - Alkollü İçecek Marketi</title>
+    <style>
+        /* Genel Stiller */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Stilleri */
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #c9a96e;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #c9a96e;
+        }
+        
+        /* Hero Bölümü */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #c9a96e;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #b8945a;
+        }
+        
+        /* Bölümler */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 32px;
+            color: #1a1a1a;
+        }
+        
+        /* Hakkımızda */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Ürünler */
+        .products {
+            background-color: #f8f8f8;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+        }
+        
+        /* İletişim */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: #c9a96e;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #c9a96e;
+        }
+        
+        .map {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #c9a96e;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">ORAN TEKEL VADİ</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#products">Ürünler</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Kaliteli İçeceklerin Adresi</h1>
+            <p>Oran Tekel Vadi, geniş ürün yelpazesi ve uygun fiyatlarıyla alkollü içecek ihtiyaçlarınız için hizmetinizde.</p>
+            <a href="#products" class="btn">Ürünlerimizi Keşfedin</a>
+        </div>
+    </section>
+
+    <!-- Hakkımızda -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Hakkımızda</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Oran Tekel Vadi, Ankara'nın Çankaya ilçesinde hizmet veren, alkollü içecek sektöründe uzmanlaşmış bir markettir. Müşterilerimize en kaliteli yerli ve yabancı içkileri sunmak için çalışıyoruz.</p>
+                    <p>Geniş ürün yelpazemizle bira, şarap, viski, rakı, votka ve daha birçok alkollü içecek çeşidini bulabilirsiniz. Uygun fiyat politikamız ve müşteri memnuniyeti odaklı hizmet anlayışımızla sizlere en iyi alışveriş deneyimini yaşatmayı hedefliyoruz.</p>
+                    <p>Oran Tekel Vadi olarak, müşterilerimizin ihtiyaçlarına uygun çözümler sunmak ve kaliteli ürünleri en uygun fiyatlarla temin etmek temel prensibimizdir.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oran Tekel Vadi Mağaza İçi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ürünler -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Popüler Ürünlerimiz</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bira Çeşitleri">
+                    </div>
+                    <div class="product-info">
+                        <h3>Yerli ve Yabancı Biralar</h3>
+                        <p>Çeşitli markalarda yerli ve ithal biralar.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Şarap Çeşitleri">
+                    </div>
+                    <div class="product-info">
+                        <h3>Kaliteli Şaraplar</h3>
+                        <p>Kırmızı, beyaz ve roze şarap çeşitleri.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1589321247066-60b0481d1c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rakı Çeşitleri">
+                    </div>
+                    <div class="product-info">
+                        <h3>Rakı Çeşitleri</h3>
+                        <p>Geleneksel Türk rakısı ve çeşitleri.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1589874186480-ecd08596c985?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Viski Çeşitleri">
+                    </div>
+                    <div class="product-info">
+                        <h3>İthal Viski Seçenekleri</h3>
+                        <p>Dünyanın farklı bölgelerinden viski çeşitleri.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">İletişim</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Bize Ulaşın</h3>
+                    <p><i>📍</i> Yukarı Dikmen Mah, Alaçatı Çarşısı, 648. Cadde No:20 A No:22, 06690 Çankaya/Ankara</p>
+                    <p><i>📞</i> 0533 617 25 53</p>
+                    <p><i>🕒</i> Açılış Saatleri: 09:00 - 23:00</p>
+                    <p>Oran Tekel Vadi olarak, müşterilerimizin memnuniyetini ön planda tutuyoruz. Soru, görüş ve önerileriniz için bize ulaşabilirsiniz.</p>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3060.935549442887!2d32.84805731538422!3d39.88662697942902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34e3b5e0c5c1d%3A0x8b0c5b5b5b5b5b5b!2sYukar%C4%B1%20Dikmen%20Mah.%2C%20Ala%C3%A7at%C4%B1%20%C3%87ar%C5%9F%C4%B1s%C4%B1%2C%20648.%20Cadde%20No%3A20%20A%20No%3A22%2C%2006690%20%C3%87ankaya%2FAnkara!5e0!3m2!1str!2str!4v1634567890123!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">ORAN TEKEL VADİ</div>
+            <div class="social-links">
+                <a href="#"><i>📱</i></a>
+                <a href="#"><i>📷</i></a>
+                <a href="#"><i>💬</i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Oran Tekel Vadi. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
