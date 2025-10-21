@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oran Tekel Vadi - Alkollü İçecek Marketi</title>
+    <title>Oran Vadi Tekel - Premium İçki Marketi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Genel Stiller */
+        /* Modern Color Palette */
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #c9a96e;
+            --accent: #8b0000;
+            --light: #f8f8f8;
+            --dark: #121212;
+            --text: #333333;
+            --text-light: #777777;
+        }
+        
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,9 +26,10 @@
         }
         
         body {
-            background-color: #f8f8f8;
-            color: #333;
+            background-color: var(--light);
+            color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -25,12 +38,51 @@
             padding: 0 20px;
         }
         
-        /* Header Stilleri */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 15px auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Styles */
         header {
-            background-color: #1a1a1a;
+            background-color: var(--primary);
             color: white;
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         .header-container {
@@ -40,9 +92,16 @@
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            color: #c9a96e;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 24px;
         }
         
         nav ul {
@@ -59,96 +118,66 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
         }
         
         nav ul li a:hover {
-            color: #c9a96e;
+            color: var(--secondary);
         }
         
-        /* Hero Bölümü */
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 120px 20px;
+            padding: 150px 20px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 48px;
+            font-size: 3.5rem;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
         
-        .btn {
-            display: inline-block;
-            background-color: #c9a96e;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #b8945a;
-        }
-        
-        /* Bölümler */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 32px;
-            color: #1a1a1a;
-        }
-        
-        /* Hakkımızda */
-        .about {
+        /* Featured Products */
+        .featured {
+            padding: 100px 0;
             background-color: white;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Ürünler */
-        .products {
-            background-color: #f8f8f8;
         }
         
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
         
@@ -157,15 +186,30 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
         
         .product-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
         }
         
         .product-image {
-            height: 200px;
+            height: 250px;
             overflow: hidden;
         }
         
@@ -173,6 +217,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
         }
         
         .product-info {
@@ -181,16 +230,108 @@
         
         .product-info h3 {
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
         
-        /* İletişim */
-        .contact {
+        .product-info .price {
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 100px 0;
             background-color: white;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .category-card h3 {
+            font-size: 1.5rem;
+            z-index: 1;
+        }
+        
+        .category-card img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .category-card:hover img {
+            opacity: 0.5;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light);
         }
         
         .contact-container {
             display: flex;
-            gap: 40px;
+            gap: 50px;
         }
         
         .contact-info {
@@ -199,7 +340,7 @@
         
         .contact-info h3 {
             margin-bottom: 20px;
-            color: #c9a96e;
+            color: var(--secondary);
         }
         
         .contact-info p {
@@ -210,14 +351,15 @@
         
         .contact-info i {
             margin-right: 10px;
-            color: #c9a96e;
+            color: var(--secondary);
+            width: 20px;
         }
         
         .map {
             flex: 1;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .map iframe {
@@ -229,40 +371,84 @@
         
         /* Footer */
         footer {
-            background-color: #1a1a1a;
+            background-color: var(--primary);
             color: white;
-            padding: 40px 0;
-            text-align: center;
+            padding: 60px 0 20px;
         }
         
         .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
-        .social-links {
-            margin: 20px 0;
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
         
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            font-size: 20px;
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
             transition: color 0.3s;
         }
         
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
         .social-links a:hover {
-            color: #c9a96e;
+            background: var(--secondary);
+            transform: translateY(-3px);
         }
         
         .copyright {
-            margin-top: 20px;
-            font-size: 14px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
             opacity: 0.7;
         }
         
-        /* Responsive Tasarım */
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -270,18 +456,24 @@
             
             nav ul {
                 margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero {
+                padding: 100px 20px;
             }
             
             .hero h1 {
-                font-size: 36px;
+                font-size: 2rem;
             }
             
-            .about-content, .contact-container {
-                flex-direction: column;
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
@@ -290,12 +482,16 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">ORAN TEKEL VADİ</div>
+            <div class="logo">
+                <i class="fas fa-wine-bottle"></i>
+                ORAN VADİ TEKEL
+            </div>
             <nav>
                 <ul>
                     <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#featured">Öne Çıkanlar</a></li>
+                    <li><a href="#categories">Kategoriler</a></li>
                     <li><a href="#about">Hakkımızda</a></li>
-                    <li><a href="#products">Ürünler</a></li>
                     <li><a href="#contact">İletişim</a></li>
                 </ul>
             </nav>
@@ -304,89 +500,135 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
-            <h1>Kaliteli İçeceklerin Adresi</h1>
-            <p>Oran Tekel Vadi, geniş ürün yelpazesi ve uygun fiyatlarıyla alkollü içecek ihtiyaçlarınız için hizmetinizde.</p>
-            <a href="#products" class="btn">Ürünlerimizi Keşfedin</a>
+        <div class="hero-content">
+            <h1>Premium İçki Deneyimi</h1>
+            <p>Oran Vadi Tekel, en kaliteli yerli ve yabancı alkollü içecekleri uygun fiyatlarla sunar. Geniş ürün yelpazemizle her zevke hitap ediyoruz.</p>
+            <a href="#featured" class="btn">Ürünleri Keşfet</a>
         </div>
     </section>
 
-    <!-- Hakkımızda -->
+    <!-- Featured Products -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <h2 class="section-title">Öne Çıkan Ürünler</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-badge">Popüler</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1589874186480-ecd08596c985?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Jack Daniel's Old No.7">
+                    </div>
+                    <div class="product-info">
+                        <h3>Jack Daniel's Old No.7</h3>
+                        <p>Tennessee viskisi, 700ml</p>
+                        <div class="price">₺1.250,00</div>
+                        <a href="#" class="btn">İncele</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">Yeni</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Château Margaux">
+                    </div>
+                    <div class="product-info">
+                        <h3>Château Margaux 2018</h3>
+                        <p>Fransız kırmızı şarabı, 750ml</p>
+                        <div class="price">₺2.850,00</div>
+                        <a href="#" class="btn">İncele</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1589321247066-60b0481d1c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Yeni Rakı">
+                    </div>
+                    <div class="product-info">
+                        <h3>Yeni Rakı</h3>
+                        <p>Geleneksel Türk rakısı, 700ml</p>
+                        <div class="price">₺350,00</div>
+                        <a href="#" class="btn">İncele</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">Fırsat</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Stella Artois">
+                    </div>
+                    <div class="product-info">
+                        <h3>Stella Artois</h3>
+                        <p>Belçika birası, 6'lı paket</p>
+                        <div class="price">₺180,00</div>
+                        <a href="#" class="btn">İncele</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Kategoriler</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1589874186480-ecd08596c985?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Viskiler">
+                    <h3>Viskiler</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Şaraplar">
+                    <h3>Şaraplar</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1589321247066-60b0481d1c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rakılar">
+                    <h3>Rakılar</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Biralar">
+                    <h3>Biralar</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">Hakkımızda</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Oran Tekel Vadi, Ankara'nın Çankaya ilçesinde hizmet veren, alkollü içecek sektöründe uzmanlaşmış bir markettir. Müşterilerimize en kaliteli yerli ve yabancı içkileri sunmak için çalışıyoruz.</p>
-                    <p>Geniş ürün yelpazemizle bira, şarap, viski, rakı, votka ve daha birçok alkollü içecek çeşidini bulabilirsiniz. Uygun fiyat politikamız ve müşteri memnuniyeti odaklı hizmet anlayışımızla sizlere en iyi alışveriş deneyimini yaşatmayı hedefliyoruz.</p>
-                    <p>Oran Tekel Vadi olarak, müşterilerimizin ihtiyaçlarına uygun çözümler sunmak ve kaliteli ürünleri en uygun fiyatlarla temin etmek temel prensibimizdir.</p>
+                    <h2>Oran Vadi Tekel - Kalitenin Adresi</h2>
+                    <p>Oran Vadi Tekel, 2025 yılında Ankara'nın Çankaya ilçesinde hizmete başlamış, alkollü içecek sektöründe uzmanlaşmış premium bir markettir. Müşterilerimize en kaliteli yerli ve yabancı içkileri sunmak için çalışıyoruz.</p>
+                    <p>Geniş ürün yelpazemizle viski, şarap, rakı, bira, votka ve daha birçok alkollü içecek çeşidini bulabilirsiniz. Uygun fiyat politikamız ve müşteri memnuniyeti odaklı hizmet anlayışımızla sizlere en iyi alışveriş deneyimini yaşatmayı hedefliyoruz.</p>
+                    <p>Jack Daniel's, Chivas Regal, Johnny Walker gibi dünyaca ünlü markaların yanı sıra, yerli üreticilerimizin kaliteli ürünlerini de mağazamızda bulabilirsiniz.</p>
+                    <a href="#contact" class="btn">Bize Ulaşın</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oran Tekel Vadi Mağaza İçi">
+                    <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oran Vadi Tekel Mağaza İçi">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ürünler -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">Popüler Ürünlerimiz</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bira Çeşitleri">
-                    </div>
-                    <div class="product-info">
-                        <h3>Yerli ve Yabancı Biralar</h3>
-                        <p>Çeşitli markalarda yerli ve ithal biralar.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Şarap Çeşitleri">
-                    </div>
-                    <div class="product-info">
-                        <h3>Kaliteli Şaraplar</h3>
-                        <p>Kırmızı, beyaz ve roze şarap çeşitleri.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1589321247066-60b0481d1c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rakı Çeşitleri">
-                    </div>
-                    <div class="product-info">
-                        <h3>Rakı Çeşitleri</h3>
-                        <p>Geleneksel Türk rakısı ve çeşitleri.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1589874186480-ecd08596c985?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Viski Çeşitleri">
-                    </div>
-                    <div class="product-info">
-                        <h3>İthal Viski Seçenekleri</h3>
-                        <p>Dünyanın farklı bölgelerinden viski çeşitleri.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- İletişim -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">İletişim</h2>
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Bize Ulaşın</h3>
-                    <p><i>📍</i> Yukarı Dikmen Mah, Alaçatı Çarşısı, 648. Cadde No:20 A No:22, 06690 Çankaya/Ankara</p>
-                    <p><i>📞</i> 0533 617 25 53</p>
-                    <p><i>🕒</i> Açılış Saatleri: 09:00 - 23:00</p>
-                    <p>Oran Tekel Vadi olarak, müşterilerimizin memnuniyetini ön planda tutuyoruz. Soru, görüş ve önerileriniz için bize ulaşabilirsiniz.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Yukarı Dikmen Mah, Alaçatı Çarşısı, 648. Cadde No:20 A No:22, 06690 Çankaya/Ankara</p>
+                    <p><i class="fas fa-phone"></i> 0533 617 25 53</p>
+                    <p><i class="fas fa-envelope"></i> info@oranvaditekel.com</p>
+                    <p><i class="fas fa-clock"></i> Açılış Saatleri: 09:00 - 23:00 (Her gün)</p>
+                    <p>Oran Vadi Tekel olarak, müşterilerimizin memnuniyetini ön planda tutuyoruz. Soru, görüş ve önerileriniz için bize ulaşabilirsiniz.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
                 <div class="map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3060.935549442887!2d32.84805731538422!3d39.88662697942902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34e3b5e0c5c1d%3A0x8b0c5b5b5b5b5b5b!2sYukar%C4%B1%20Dikmen%20Mah.%2C%20Ala%C3%A7at%C4%B1%20%C3%87ar%C5%9F%C4%B1s%C4%B1%2C%20648.%20Cadde%20No%3A20%20A%20No%3A22%2C%2006690%20%C3%87ankaya%2FAnkara!5e0!3m2!1str!2str!4v1634567890123!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
@@ -397,15 +639,38 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-content">
-            <div class="logo">ORAN TEKEL VADİ</div>
-            <div class="social-links">
-                <a href="#"><i>📱</i></a>
-                <a href="#"><i>📷</i></a>
-                <a href="#"><i>💬</i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ORAN VADİ TEKEL</h3>
+                    <p>Premium içki deneyimini en uygun fiyatlarla sunan güvenilir adresiniz.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul>
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="#featured">Öne Çıkan Ürünler</a></li>
+                        <li><a href="#categories">Kategoriler</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#contact">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>İletişim</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Yukarı Dikmen, Çankaya/Ankara</li>
+                        <li><i class="fas fa-phone"></i> 0533 617 25 53</li>
+                        <li><i class="fas fa-envelope"></i> info@oranvaditekel.com</li>
+                    </ul>
+                </div>
             </div>
             <div class="copyright">
-                &copy; 2023 Oran Tekel Vadi. Tüm hakları saklıdır.
+                &copy; 2025 Oran Vadi Tekel. Tüm hakları saklıdır.
             </div>
         </div>
     </footer>
