@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oran Vadi Tekel - Premium İçki Marketi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Modern Color Palette */
         :root {
-            --primary: #1a1a1a;
-            --secondary: #c9a96e;
+            --primary: #0c0c0c;
+            --secondary: #d4af37;
             --accent: #8b0000;
-            --light: #f8f8f8;
+            --light: #f5f5f5;
             --dark: #121212;
-            --text: #333333;
+            --text: #2c2c2c;
             --text-light: #777777;
+            --gold: #d4af37;
+            --bronze: #cd7f32;
         }
         
         /* Base Styles */
@@ -22,7 +25,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
@@ -30,6 +32,11 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
         }
         
         .container {
@@ -62,16 +69,52 @@
             padding: 12px 30px;
             border-radius: 4px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
         
         .btn:hover {
             background-color: var(--accent);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
         
         /* Header Styles */
@@ -97,6 +140,7 @@
             color: var(--secondary);
             display: flex;
             align-items: center;
+            font-family: 'Playfair Display', serif;
         }
         
         .logo i {
@@ -119,6 +163,7 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            font-size: 0.95rem;
         }
         
         nav ul li a:after {
@@ -142,7 +187,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -211,6 +256,7 @@
         .product-image {
             height: 250px;
             overflow: hidden;
+            background-color: #f9f9f9;
         }
         
         .product-image img {
@@ -233,11 +279,10 @@
             font-size: 1.2rem;
         }
         
-        .product-info .price {
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+        .product-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
         
         /* About Section */
@@ -321,6 +366,42 @@
         
         .category-card:hover img {
             opacity: 0.5;
+        }
+        
+        /* Brands Section */
+        .brands {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .brand-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .brand-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .brand-item img {
+            height: 60px;
+            width: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .brand-item:hover img {
+            filter: grayscale(0%);
         }
         
         /* Contact Section */
@@ -483,7 +564,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-wine-bottle"></i>
+                <i class="fas fa-crown"></i>
                 ORAN VADİ TEKEL
             </div>
             <nav>
@@ -491,6 +572,7 @@
                     <li><a href="#home">Ana Sayfa</a></li>
                     <li><a href="#featured">Öne Çıkanlar</a></li>
                     <li><a href="#categories">Kategoriler</a></li>
+                    <li><a href="#brands">Markalar</a></li>
                     <li><a href="#about">Hakkımızda</a></li>
                     <li><a href="#contact">İletişim</a></li>
                 </ul>
@@ -502,7 +584,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Premium İçki Deneyimi</h1>
-            <p>Oran Vadi Tekel, en kaliteli yerli ve yabancı alkollü içecekleri uygun fiyatlarla sunar. Geniş ürün yelpazemizle her zevke hitap ediyoruz.</p>
+            <p>Oran Vadi Tekel, en kaliteli yerli ve yabancı alkollü içecekleri sunar. Geniş ürün yelpazemizle her zevke hitap ediyoruz.</p>
             <a href="#featured" class="btn">Ürünleri Keşfet</a>
         </div>
     </section>
@@ -513,53 +595,49 @@
             <h2 class="section-title">Öne Çıkan Ürünler</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <div class="product-badge">Popüler</div>
+                    <div class="product-badge">Premium</div>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1589874186480-ecd08596c985?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Jack Daniel's Old No.7">
+                        <img src="https://images.unsplash.com/photo-1572383672419-ab35444a6934?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Jack Daniel's">
                     </div>
                     <div class="product-info">
-                        <h3>Jack Daniel's Old No.7</h3>
+                        <h3>Jack Daniel's</h3>
                         <p>Tennessee viskisi, 700ml</p>
-                        <div class="price">₺1.250,00</div>
-                        <a href="#" class="btn">İncele</a>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-badge">Yeni</div>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Château Margaux">
+                        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Château Margaux">
                     </div>
                     <div class="product-info">
-                        <h3>Château Margaux 2018</h3>
+                        <h3>Château Margaux</h3>
                         <p>Fransız kırmızı şarabı, 750ml</p>
-                        <div class="price">₺2.850,00</div>
-                        <a href="#" class="btn">İncele</a>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1589321247066-60b0481d1c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Yeni Rakı">
+                        <img src="https://images.unsplash.com/photo-1629733275336-89d1ddf90d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D3D&auto=format&fit=crop&w=2070&q=80" alt="Yeni Rakı">
                     </div>
                     <div class="product-info">
                         <h3>Yeni Rakı</h3>
                         <p>Geleneksel Türk rakısı, 700ml</p>
-                        <div class="price">₺350,00</div>
-                        <a href="#" class="btn">İncele</a>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-badge">Fırsat</div>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Stella Artois">
+                        <img src="https://images.unsplash.com/photo-1600788886242-5e96e8e235d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Stella Artois">
                     </div>
                     <div class="product-info">
                         <h3>Stella Artois</h3>
                         <p>Belçika birası, 6'lı paket</p>
-                        <div class="price">₺180,00</div>
-                        <a href="#" class="btn">İncele</a>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
                     </div>
                 </div>
             </div>
@@ -572,20 +650,44 @@
             <h2 class="section-title">Kategoriler</h2>
             <div class="category-grid">
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1589874186480-ecd08596c985?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Viskiler">
+                    <img src="https://images.unsplash.com/photo-1572383672419-ab35444a6934?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Viskiler">
                     <h3>Viskiler</h3>
                 </div>
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Şaraplar">
+                    <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Şaraplar">
                     <h3>Şaraplar</h3>
                 </div>
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1589321247066-60b0481d1c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rakılar">
+                    <img src="https://images.unsplash.com/photo-1629733275336-89d1ddf90d87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Rakılar">
                     <h3>Rakılar</h3>
                 </div>
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Biralar">
+                    <img src="https://images.unsplash.com/photo-1600788886242-5e96e8e235d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Biralar">
                     <h3>Biralar</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands" id="brands">
+        <div class="container">
+            <h2 class="section-title">Markalarımız</h2>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/08/Jack-Daniels-Logo.png" alt="Jack Daniel's">
+                </div>
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/08/Johnnie-Walker-Logo.png" alt="Johnnie Walker">
+                </div>
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/12/Chivas-Regal-Logo.png" alt="Chivas Regal">
+                </div>
+                <div class="brand-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/08/Stella-Artois-Logo.png" alt="Stella Artois">
+                </div>
+                <div class="brand-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Corona_Extra_logo.svg/2560px-Corona_Extra_logo.svg.png" alt="Corona">
                 </div>
             </div>
         </div>
@@ -604,7 +706,7 @@
                     <a href="#contact" class="btn">Bize Ulaşın</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oran Vadi Tekel Mağaza İçi">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Oran Vadi Tekel Mağaza İçi">
                 </div>
             </div>
         </div>
@@ -656,6 +758,7 @@
                         <li><a href="#home">Ana Sayfa</a></li>
                         <li><a href="#featured">Öne Çıkan Ürünler</a></li>
                         <li><a href="#categories">Kategoriler</a></li>
+                        <li><a href="#brands">Markalar</a></li>
                         <li><a href="#about">Hakkımızda</a></li>
                         <li><a href="#contact">İletişim</a></li>
                     </ul>
@@ -674,5 +777,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/905336172553?text=Merhaba,%20Oran%20Vadi%20Tekel%20hakkında%20bilgi%20almak%20istiyorum." class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size: 28px;"></i>
+    </a>
 </body>
 </html>
